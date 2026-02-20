@@ -1,5 +1,9 @@
 .button {
   border: none;
+  height: 40px;
+  width: 300px;
+  justify-self: center;
+  box-shadow: 5px 5px 20px slategray;
 }
 
 .button:hover {

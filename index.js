@@ -43,6 +43,7 @@ searchBar.addEventListener("submit", (event) => {
   const data = new FormData(event.target);
   const dataObject = Object.fromEntries(data);
   searchQuery = dataObject.query;
+  page = 1;
   fetchCharacters();
   event.target.reset();
   event.target.elements.query.focus();
