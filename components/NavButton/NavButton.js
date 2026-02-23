@@ -1,6 +1,6 @@
-export function setupButtons(
-  prevButton,
-  nextButton,
-  pageState,
-  fetchCharacters,
-)
+// export function setupButtons(
+//   prevButton,
+//   nextButton,
+//   pageState,
+//   fetchCharacters,
+// )
