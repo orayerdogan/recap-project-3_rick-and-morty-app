@@ -7,9 +7,9 @@ const searchBarContainer = document.querySelector(
 );
 const searchBar = document.querySelector('[data-js="search-bar"]');
 const navigation = document.querySelector('[data-js="navigation"]');
-const prevButton = document.querySelector('[data-js="button-prev"]');
-const nextButton = document.querySelector('[data-js="button-next"]');
-const pagination = document.querySelector('[data-js="pagination"]');
+const prevButtons = document.querySelectorAll('[data-js="button-prev"]');
+const nextButtons = document.querySelectorAll('[data-js="button-next"]');
+const paginations = document.querySelectorAll('[data-js="pagination"]');
 
 let page = 1;
 let maxPage = 1;
@@ -32,7 +32,12 @@ async function fetchCharacters() {
       const card = createCharacterCard(character);
       cardContainer.appendChild(card);
     });
-    pagination.textContent = `${page} / ${maxPage}`; //updates the paginations display
+
+    paginations.forEach((pagination) => {
+      pagination.textContent = `${page} / ${maxPage}`;
+    });
+
+    //pagination.textContent = `${page} / ${maxPage}`;
   } catch (error) {
     console.error("Error fetching characters:", error);
   }
@@ -48,17 +53,38 @@ searchBar.addEventListener("submit", (event) => {
   event.target.elements.query.focus();
 });
 
-prevButton.addEventListener("click", () => {
-  if (page > 1) {
-    page--;
-    fetchCharacters();
-  }
+prevButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (page > 1) {
+      page--;
+      fetchCharacters();
+    }
+  });
 });
 
-nextButton.addEventListener("click", () => {
-  if (page < maxPage) {
-    page++;
-    fetchCharacters();
-  }
+// --------------------
+// Next Buttons
+// --------------------
+nextButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (page < maxPage) {
+      page++;
+      fetchCharacters();
+    }
+  });
 });
+
+// prevButton.addEventListener("click", () => {
+//   if (page > 1) {
+//     page--;
+//     fetchCharacters();
+//   }
+// });
+
+// nextButton.addEventListener("click", () => {
+//   if (page < maxPage) {
+//     page++;
+//     fetchCharacters();
+//   }
+// });
 fetchCharacters();
