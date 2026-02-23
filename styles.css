@@ -45,5 +45,47 @@ main {
 
 .navigation {
   padding: 10px 0;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+.button {
+  width: 120px;
+  height: 60px;
+  border: none;
+  font-weight: bold;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  text-indent: -9999px;
+  border-radius: 10px;
+}
+
+/* Rick for Previous */
+.button--prev {
+  background-image: url("./assets/Rick_Sanchez.webp");
+}
+
+/* Morty for Next */
+.button--next {
+  background-image: url("./assets/MortyWHY!.jpg");
+}
+
+.button--prev,
+.button--next {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--prev::before,
+.button--next::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.button--prev span,
+.button--next span {
+  position: relative;
+  z-index: 1;
 }
