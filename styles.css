@@ -29,7 +29,7 @@ body {
   background-image: url("./assets/Rick&Morty.webp");
   background-size: cover;
   background-position: center;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 }
 
 main {
@@ -64,6 +64,7 @@ main {
 /* Rick for Previous */
 .button--prev {
   background-image: url("./assets/Rick_Sanchez.webp");
+  transform: scaleX(-1);
 }
 
 /* Morty for Next */
