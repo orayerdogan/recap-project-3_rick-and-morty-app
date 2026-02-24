@@ -21,7 +21,7 @@ const prevButton = NavButton("prev", () => {
 });
 
 const nextButton = NavButton("next", () => {
-    if (page <= maxPage) {
+    if (page < maxPage) {
         page++;
         fetchCharacters();
     }
@@ -60,7 +60,6 @@ async function fetchCharacters() {
         });
 
         pagination.textContent = `${page} / ${maxPage}`;
-
     } catch (error) {
         console.error("Error fetching characters:", error);
     }
