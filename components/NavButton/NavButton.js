@@ -1,6 +1,8 @@
-// export function setupButtons(
-//   prevButton,
-//   nextButton,
-//   pageState,
-//   fetchCharacters,
-// )
+export default function NavButton(text, onClick) {
+    const button = document.createElement("button");
+    button.classList.add("button", `button--${text}`);
+    button.textContent = text;
+    button.addEventListener("click", onClick);
+
+    return button;
+}
